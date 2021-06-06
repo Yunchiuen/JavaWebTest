@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 /*
-    Client請求URL http://localhost:8080/JavaWebTest/hi?name=john
+    Client請求URL http://localhost:8080/JavaWebTest/hi?name=Yun
     /JavaWebTest -> context path 要到META-INF/context.xml中設定與配置
     /hi          -> url-pattern  要到WEB-INF/web.xml中設定與配置
 */
