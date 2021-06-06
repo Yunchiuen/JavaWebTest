@@ -17,6 +17,17 @@
     <!--servlet給 Client url-pattern對應配置-->
     <servlet-mapping>
         <servlet-name>HelloGenericServlet</servlet-name>
+        <url-pattern>/hi</url-pattern>
+    </servlet-mapping>
+    
+    <!--宣告 servlet-->
+    <servlet>
+        <servlet-name>HelloHttpServlet</servlet-name>
+        <servlet-class>com.web.controller.HelloHttpServlet</servlet-class>
+    </servlet>
+    <!--servlet給 Client url-pattern對應配置-->
+    <servlet-mapping>
+        <servlet-name>HelloHttpServlet</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -12,7 +12,6 @@ import javax.servlet.ServletResponse;
     /JavaWebTest -> context path 要到META-INF/context.xml中設定與配置
     /hi          -> url-pattern  要到WEB-INF/web.xml中設定與配置
 */
-
 public class HelloGenericServlet extends GenericServlet {
 
     @Override
