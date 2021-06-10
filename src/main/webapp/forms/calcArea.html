@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>計算面積</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--套用 https://purecss.io css -->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+    </head>
+    <!--上下左右留白20px-->
+    <body style="padding: 20px">
+        <!--表單送到這裡 action="/JavaWebTest/controller/CalcArea" 不一定要跟Servler名稱一樣而是按照urlPatterns-->
+        <form class="pure-form" method="post" action="/JavaWebTest/controller/CalcArea">
+            <fieldset>
+                <legend>計算面積</legend>
+                <!--第一組-->
+                <select name="type">
+                    <option value="1" selected>圓面積</option><!--selected預設-->
+                    <option value="2">球體積</option>
+                </select>
+                <!--標準html type是沒有number-->
+                <input type="number" placeholder="請輸入半徑" name="r"/>
+                
+                <button type="submit" class="pure-button pure-button-primary">計算</button>
+            </fieldset>
+        </form>
+    </body>
+</html>
