@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>BMI 觀察表單編碼</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" >
+    </head>
+    <body style="padding: 20px">
+        <!--enctype="application/x-www-form-urlencoded" 預設表單編碼-->
+        <form class="pure-form" 
+              method="post" 
+              enctype="application/x-www-form-urlencoded"
+              action="/JavaWebTest/controller/BMIFrom">
+            <fieldset>
+                <legend>BMI(預設表單編碼)</legend>
+                <input name="cname" type="text" placeholder="姓名" value="王小明"><p />
+                <input name="height" type="text" placeholder="身高" value="170"><p />
+                <input name="weight" type="text" placeholder="體重" value="60"><p />
+                <button type="submit" class="pure-button pure-button-primary">
+                    計算
+                </button>
+            </fieldset>
+        </form>
+        <!--純文字編碼-->
+        <form class="pure-form" 
+              method="post" 
+              enctype="text/plain"
+              action="/JavaWebTest/controller/BMIFrom">
+            <fieldset>
+                <legend>BMI(表單編碼:text/plain)純文字編碼</legend>
+                <input name="cname" type="text" placeholder="姓名" value="王小明"><p />
+                <input name="height" type="text" placeholder="身高" value="170"><p />
+                <input name="weight" type="text" placeholder="體重" value="60"><p />
+                <button type="submit" class="pure-button pure-button-primary">
+                    計算
+                </button>
+            </fieldset>
+        </form>
+        <!--上傳表單規定要用 multipart/form-data-->
+        <form class="pure-form" 
+              method="post" 
+              enctype="multipart/form-data"
+              action="/JavaWebTest/controller/BMIFrom">
+            <fieldset>
+                <legend>BMI(表單編碼:multipart/form-data)</legend>
+                <input name="cname" type="text" placeholder="姓名" value="王小明"><p />
+                <input name="height" type="text" placeholder="身高" value="170"><p />
+                <input name="weight" type="text" placeholder="體重" value="60"><p />
+                <button type="submit" class="pure-button pure-button-primary">
+                    計算
+                </button>
+            </fieldset>
+        </form>
+        <!--上傳表單規定要用 multipart/form-data-->
+        <form class="pure-form" 
+              method="post" 
+              enctype="multipart/form-data"
+              action="/JavaWebTest/controller/BMIFrom">
+            <fieldset>
+                <legend>UPload(表單編碼:multipart/form-data)</legend>
+                <input name="cname" type="text" placeholder="圖片名稱" value="我的圖片"><p />
+                <input type="file" name="upload_file"/>
+                <p />
+                <button type="submit" class="pure-button pure-button-primary">
+                    上傳
+                </button>
+            </fieldset>
+        </form>
+
+    </body>
+</html>

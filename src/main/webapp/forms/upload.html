@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Upload 觀察表單編碼</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" >
+    </head>
+    <body style="padding: 20px">
+        <!--上傳表單規定要用 multipart/form-data-->
+        <form class="pure-form" 
+              method="post" 
+              enctype="multipart/form-data"
+              action="/JavaWebTest/controller/upload/file">
+            <fieldset>
+                <legend>UPload 純文字文件(表單編碼:multipart/form-data)</legend>
+                <input name="cname" type="text" placeholder="文件名稱" value="" class="pure-input-rounded"><p />
+                <input type="file" name="upload_file"/><p />
+                <input type="file" name="upload_file" class ="pure-button"/>
+                <p />
+                <button type="submit" class="pure-button pure-button-primary">
+                    上傳
+                </button>
+            </fieldset>
+        </form>
+        <!--上傳表單規定要用 multipart/form-data-->
+        <form class="pure-form" 
+              method="post" 
+              enctype="multipart/form-data"
+              action="/JavaWebTest/controller/upload/image">
+            <fieldset>
+                <legend>UPload 圖片(表單編碼:multipart/form-data)</legend>
+                <input name="cname" type="text" placeholder="圖片名稱" value=""><p />
+                <input type="file" name="upload_file"/>
+                <p />
+                <input type="file" name="upload_file"/>
+                <p />
+                <button type="submit" class="pure-button pure-button-primary">
+                    上傳
+                </button>
+            </fieldset>
+        </form>
+
+    </body>
+</html>
