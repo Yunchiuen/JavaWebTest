@@ -1,31 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 version="3.1"
-         metadata-complete="false"><!--預設false true禁止使用@配置Servlet 以Web.xml為主-->
+<!--預設false true禁止使用@配置Servlet 以Web.xml為主-->
+<web-app metadata-complete="false" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <!--宣告 filter-->
+    <filter>
+        <filter-name>Login</filter-name>
+        <filter-class>com.web.filter.LoginFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>Watermark</filter-name>
+        <filter-class>com.web.filter.WatermarkFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>Preformance</filter-name>
+        <filter-class>com.web.filter.PreformanceFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>UTF8</filter-name>
+        <filter-class>com.web.filter.UTF8Filter</filter-class>
+    </filter> 
+    
+    
+    <!--filter 給 Client url-pattern對應配置-->
+    <!--如果先Watermark在Login會先跑出符水印,web.xml檔可設定順序問題-->
+    <!--filter-mapping 執行順序-->
+    <filter-mapping>
+        <filter-name>UTF8</filter-name>
+        <url-pattern>/jsps/*</url-pattern>
+        <url-pattern>/controller/bmi_session</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Preformance</filter-name>
+        <url-pattern>/secure/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Login</filter-name>
+        <url-pattern>/secure/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Watermark</filter-name>
+        <url-pattern>/secure/*</url-pattern>
+    </filter-mapping>
     <!--宣告 servlet-->
     <servlet>
         <servlet-name>HelloGenericServlet</servlet-name>
         <servlet-class>com.web.controller.HelloGenericServlet</servlet-class>
+    </servlet>
+    <!--宣告 servlet-->
+    <servlet>
+        <servlet-name>HelloHttpServlet</servlet-name>
+        <servlet-class>com.web.controller.HelloHttpServlet</servlet-class>
     </servlet>
     <!--servlet給 Client url-pattern對應配置-->
     <servlet-mapping>
         <servlet-name>HelloGenericServlet</servlet-name>
         <url-pattern>/hi</url-pattern>
     </servlet-mapping>
-    
-    <!--宣告 servlet-->
-    <servlet>
-        <servlet-name>HelloHttpServlet</servlet-name>
-        <servlet-class>com.web.controller.HelloHttpServlet</servlet-class>
-    </servlet>
     <!--servlet給 Client url-pattern對應配置-->
     <servlet-mapping>
         <servlet-name>HelloHttpServlet</servlet-name>
