@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--預設false true禁止使用@配置Servlet 以Web.xml為主-->
 <web-app metadata-complete="false" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!--session預設30分鐘,程式碼為主 web.xml為輔-->
     <session-config>
         <session-timeout>
             30
