@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>
-            <my:required /><p/>
+            <my:required /><p />
             <my:greet /><p/>
             <my:greet user="Yun" /><p/>
             <my:greet user="Yun ${1+2}"/><p/>

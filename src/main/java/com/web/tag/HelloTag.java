@@ -64,10 +64,14 @@ public class HelloTag implements Tag {
         } catch (Exception e) {
         }
         return Tag.EVAL_PAGE;
+        //Tag.EVAL_PAGE 正常結束
+        //Tag.SKIP_PAGE 中斷結束
+        //強制後面程式碼不會執行(很少使用)
     }
 
     @Override
     public void release() {
+         
     }
 
 }
