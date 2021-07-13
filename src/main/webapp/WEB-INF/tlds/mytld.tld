@@ -116,7 +116,7 @@
         <attribute>
             <name>symbol</name>
             <required>true</required>
-            <rtexprvalue>false</rtexprvalue>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
 </taglib>

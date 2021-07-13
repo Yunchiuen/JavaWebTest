@@ -16,6 +16,7 @@ public class ReportTag implements BodyTag {
     private PageContext pageContext;
     private Tag parentTag;
     private String symbol;
+    private String color;
 
     @Override
     public void setBodyContent(BodyContent bc) {
@@ -41,6 +42,10 @@ public class ReportTag implements BodyTag {
         this.symbol = symbol;
     }
 
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @Override
     public int doStartTag() throws JspException {
         return BodyTag.EVAL_BODY_BUFFERED;
@@ -55,11 +60,22 @@ public class ReportTag implements BodyTag {
     public int doAfterBody() throws JspException {
 
         JspWriter out = bodyContent.getEnclosingWriter();
+
         try {
             Stock stock = YahooFinance.get(symbol);
-            BigDecimal price = stock.getQuote().getPrice();
-            BigDecimal change = stock.getQuote().getChange();
-            out.println(change);
+            Double price = stock.getQuote().getPrice().doubleValue();
+            Double change = stock.getQuote().getChange().doubleValue();
+            String a = null;
+
+            if (change > 0) {
+                a = "△";
+                color = String.format("<font color='#FF0000'>$ %.2f %s %.2f", price, a, change);
+            }
+            if (change < 0) {
+                a = "▽";
+                color = String.format("<font color='#005100'>$ %.2f %s %.2f", price, a, change);
+            }
+            out.println(String.format("<font color='gray'>(%s %s</font> <input type='button' value='下單' />)</font>", symbol, color));
         } catch (Exception e) {
         }
         return Tag.SKIP_BODY;
