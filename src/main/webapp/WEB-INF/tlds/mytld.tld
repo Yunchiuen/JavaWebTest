@@ -112,11 +112,36 @@
     <tag>
         <name>report</name>
         <tag-class>com.web.tag.ReportTag</tag-class>
-        <body-content>JSP</body-content>
+        <body-content>empty</body-content>
         <attribute>
             <name>symbol</name>
             <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
+            <rtexprvalue>false</rtexprvalue>
         </attribute>
+    </tag>
+    
+    <!--CircleAreaTag-->
+    <tag>
+        <name>circleArea</name>
+        <tag-class>com.web.tag.CircleAreaTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>r</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>mode</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <!--AddTag-->
+    <tag>
+        <name>Add</name>
+        <tag-class>com.web.tag.AddTag</tag-class>
+        <body-content>empty</body-content>
+        <dynamic-attributes>true</dynamic-attributes>
     </tag>
 </taglib>
